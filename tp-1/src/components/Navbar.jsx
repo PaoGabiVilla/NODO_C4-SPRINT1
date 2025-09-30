@@ -4,10 +4,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: "Inicio", href: "#" },
-    { name: "Nosotros", href: "#" },
-    { name: "Actividades", href: "#" },
-    { name: "Contacto", href: "#" },
+    { name: "Inicio", href: "#", icons: <i class="bi bi-house-door-fill"></i> },
+    { name: "Nosotros", href: "#", icons: <i class="bi bi-people-fill"></i>},
+    { name: "Actividades", href: "#", icons: <i class="bi bi-building-fill"></i> },
+    { name: "Contacto", href: "#", icons: <i class="bi bi-envelope-at-fill"></i> },
   ];
 
   return (
@@ -20,7 +20,10 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-10 text-[#265772] font-medium">
           {links.map((link, index) => (
             <li key={index}>
-              <a href={link.href}>{link.name}</a>
+              <a href={link.href}>
+                {link.icons}
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>
@@ -65,6 +68,7 @@ const Navbar = () => {
                 href={link.href}
                 className="block px-2 py-1 hover:bg-[#E3DFD5] rounded"
               >
+                {link.icons}
                 {link.name}
               </a>
             </li>
